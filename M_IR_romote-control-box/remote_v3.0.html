@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IR Remote Controller</title>
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+button {
+ font-family: Arial,Helvetica,sans-serif;
+ font-size: 18px;
+ font-weight: bold;
+}
+.buttons button:active {
+  color: white;
+  background: #0095c6;
+}
+.buttons button.pwrbtn:active {
+  color: black;
+  background: darkred;
+}
+.buttons button.numbtn:active {
+  color: black;
+  background: #0095c6;
+}
+.btn {
+  border: none;
+  background-color: #FFFFF0;
+  color: black;
+  border-radius: 4px;
+}
+.pwrbtn {
+  background-color: red;
+  color:white;
+}
+.numbtn {
+  background-color: darkgrey;
+  color:white;
+}
+</style>
+<script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            var url = "/?playback=" + $(this).attr('data-id');
+                $.ajax({
+                    url: url
+                });
+        });
+    });
+</script>
+</head>
+<body style="background-color:black;">
+<div class="buttons">
+<table style="margin-left: auto; margin-right: auto; table-layout: fixed; width: 304px;">
+<tbody>
+<tr style="height: 46px;">
+<td style="width: 101px; height: 46px;" align="left"><a href="/P"><button  data-id="01" class="btn pwrbtn" style="width: 95%; height: 100%;"><strong>ON/OFF</strong></button></a></td>
+<td style="width: 102px; height: 46px;" align="center"><button  data-id="02" class="btn" style="width: 95%; height: 100%;"><strong>TV/RADIO</strong></button></td>
+<td style="width: 101px; height: 46px;" align="right"><button  data-id="03" class="btn" style="width: 95%; height: 100%;"><strong>MUTE</strong></button></td>
+</tr>
+<tr style="height: 8px;">
+</tr>
+<tr style="height: 46px;">
+<td style="width: 101px; height: 46px;" align="right"><button  data-id="04" class="btn numbtn" style="width: 75%; height: 100%;"><strong>1</strong></button></td>
+<td style="width: 102px; height: 46px;" align="center"><button  data-id="05" class="btn numbtn" style="width: 75%; height: 100%;"><strong>2</strong></button></td>
+<td style="width: 101px; height: 46px;" align="left"><button  data-id="06" class="btn numbtn" style="width: 75%; height: 100%;"><strong>3</strong></button></td>
+</tr>
+<tr style="height: 4px;">
+</tr>
+<tr style="height: 46px;">
+<td style="width: 101px; height: 46px;" align="right"><button  data-id="07" class="btn numbtn" style="width: 75%; height: 100%;"><strong>4</strong></button></td>
+<td style="width: 102px; height: 46px;" align="center"><button  data-id="08" class="btn numbtn" style="width: 75%; height: 100%;"><strong>5</strong></button></td>
+<td style="width: 101px; height: 46px;" align="left"><button  data-id="09" class="btn numbtn" style="width: 75%; height: 100%;"><strong>6</strong></button></td>
+</tr>
+<tr style="height: 4px;">
+</tr>
+<tr style="height: 46px;">
+<td style="width: 101px; height: 46px;" align="right"><button  data-id="10" class="btn numbtn" style="width: 75%; height: 100%;"><strong>7</strong></button></td>
+<td style="width: 102px; height: 46px;" align="center"><button  data-id="11" class="btn numbtn" style="width: 75%; height: 100%;"><strong>8</strong></button></td>
+<td style="width: 101px; height: 46px;" align="left"><button  data-id="12" class="btn numbtn" style="width: 75%; height: 100%;"><strong>9</strong></button></td>
+</tr>
+<tr style="height: 4px;">
+</tr>
+<tr style="height: 46px;">
+<td style="width: 101px; height: 46px;" align="right"><button  data-id="13" class="btn numbtn" style="width: 75%; height: 100%;"><strong>MENU</strong></button></td>
+<td style="width: 102px; height: 46px;" align="center"><button  data-id="14" class="btn numbtn" style="width: 75%; height: 100%;"><strong>0</strong></button></td>
+<td style="width: 101px; height: 46px;" align="left"><button  data-id="15" class="btn numbtn" style="width: 75%; height: 100%;"><strong>EXIT</strong></button></td>
+</tr>
+<tr style="height: 8px;">
+</tr>
+<tr style="height: 46px;">
+<td style="width: 101px; height: 46px;"></td>
+<td style="width: 102px; height: 46px;" align="center"><a href="/Cp"><button  data-id="16" class="btn" style="width: 95%; height: 100%;"><strong>CH ▲</strong></button></a></td>
+<td style="width: 101px; height: 46px;"></td>
+</tr>
+<tr style="height: 4px;">
+</tr>
+<tr style="height: 46px;">
+<td style="width: 101px; height: 46px;" align="left"><a href="/Vm"><button  data-id="17" class="btn" style="width: 95%; height: 100%;"><strong>VOL ▼</strong></button></a></td>
+<td style="width: 102px; height: 46px;" align="center"><button  data-id="18" class="btn" style="width: 95%; height: 100%;"><strong>OK</strong></button></td>
+<td style="width: 101px; height: 46px;" align="right"><a href="/Vp"><button  data-id="19" class="btn" style="width: 95%; height: 100%;"><strong>VOL ▲</strong></button></a></td>
+</tr>
+<tr style="height: 4px;">
+</tr>
+<tr style="height: 46px;">
+<td style="width: 101px; height: 46px;"></td>
+<td style="width: 102px; height: 46px;" align="center"><a href="/Cm"><button  data-id="20" class="btn" style="width: 95%; height: 100%;"><strong>CH ▼</strong></button></a></td>
+<td style="width: 101px; height: 46px;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IR Remote Control</title>
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;   
+            font-family: Arial, sans-serif;
+        }
+        html {
+            height: 100%;
+            background: #ffffff;
+            background: radial-gradient(circle, #fff 20%, #ccc);
+            background-size: cover;
+        }
+        .wrapper {
+            width: calc( 100% - 24px);
+            max-width: 200px;
+            padding: 12px 12px;
+            margin: 0 auto;
+        }
+        /* ==========================================================================
+           Buttons
+           ========================================================================== */
+        .buttons button {
+            display: block;
+            border: none;
+            clear: both;
+            background: #00A6DC;
+            box-shadow: 0px 4px #00749a;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            width: 60px;
+            height: 60px;
+            position: relative;
+            top: 0;
+            cursor: pointer;
+            outline: none;
+            color: #fff;
+            line-height: 60px;
+            font-size: 14px;
+            text-align: center;
+            user-select: none;
+            -webkit-transition: all 0.2s ease;
+            -moz-transition: all 0.2s ease;
+            -ms-transition: all 0.2s ease;
+            -o-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+        .buttons button.full {
+            width: 50%;
+        }
+        .buttons button.power {
+            background: #FF3A19;
+            box-shadow: 0px 4px #cc2e14;
+            margin-bottom: 24px;
+        }
+        .buttons button:hover {
+            background: #0095c6;
+            box-shadow: 0px 4px #006484;
+        }
+        .buttons button.power:hover {
+            background: #e63417;
+            box-shadow: 0px 4px #99230f;
+        }
+        .buttons button:active {
+            top: 4px;
+            box-shadow: 0px 0px #006484;
+        }
+        .buttons button.power:active {
+            top: 4px;
+            box-shadow: 0px 0px #99230f;
+        }
+        .pull-left {
+            display: block;
+            float: left;
+            width: 50%;
+            clear: left;
+        }
+        .pull-right {
+            display: block;
+            float: right;
+            width: 50%;
+            clear: right;
+        }
+        .pull-right button { 
+            margin: 0 0 12px auto;
+        }
+        .buttons:before,
+        .buttons:after,
+        .pull-left:before,
+        .pull-left:after,
+        .pull-right:before,
+        .pull-right:after {
+          content: "";
+          display: table;
+        } 
+        .buttons:after,
+        .pull-left:after,
+        .pull-right:after {
+          clear: both;
+        }
+    </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            var url = "/?playback=" + $(this).attr('data-id');
+                $.ajax({
+                    url: url
+                });
+        });
+    });
+</script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Buttons -->
+        <div class="buttons">
+            <button data-id="101" class="power full">ON/OFF</button> 
+            <div class="pull-left">
+                <button data-id="102">VOL +</button>
+                <button data-id="103">VOL -</button>
+            </div>
+            <div class="pull-right">
+                <button data-id="104">CH +</button>
+                <button data-id="105">CH -</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
